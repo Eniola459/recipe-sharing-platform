@@ -5,12 +5,12 @@ const path = require("path");
 exports.createProfile = async (req, res) => {
   try {
     const { bio, firstName, lastName, twitterHandle, instagramHandle } = req.body;
-    const userId = req.user._id; // Assuming user authentication is in place
+    const userId = req.user._id; 
 
     // Handle avatar upload
     let avatarUrl = null;
     if (req.file) {
-      avatarUrl = `/uploads/${req.file.filename}`; // Store the file path (can be a URL if serving static files)
+      avatarUrl = `/uploads/${req.file.filename}`; 
     }
 
     const newProfile = new Profile({
@@ -19,7 +19,7 @@ exports.createProfile = async (req, res) => {
       lastName,
       twitterHandle,
       instagramHandle,
-      avatarUrl, // Store the avatar URL or file path
+      avatarUrl, 
       userId,
     });
 
@@ -58,7 +58,7 @@ exports.updateProfile = async (req, res) => {
 
     // Handle avatar upload during profile update
     if (req.file) {
-      updates.avatarUrl = `/uploads/${req.file.filename}`; // Update with the new avatar path
+      updates.avatarUrl = `/uploads/${req.file.filename}`; 
     }
 
     const updatedProfile = await Profile.findOneAndUpdate(
@@ -111,11 +111,11 @@ exports.searchProfile = async (req, res) => {
       let query = {};
   
       if (firstName) {
-        query.firstName = { $regex: firstName, $options: "i" }; // Case-insensitive search
+        query.firstName = { $regex: firstName, $options: "i" }; 
       }
   
       if (lastName) {
-        query.lastName = { $regex: lastName, $options: "i" }; // Case-insensitive search
+        query.lastName = { $regex: lastName, $options: "i" }; 
       }
   
       const profiles = await Profile.find(query);

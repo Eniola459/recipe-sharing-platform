@@ -4,12 +4,12 @@ const commentSchema = new mongoose.Schema(
   {
     recipe: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Recipe",  // Reference to the Recipe model
+      ref: "Recipe",  
       required: true,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",  // Reference to the User model (if you're associating users with comments)
+      ref: "User",  
       required: true,
     },
     comment: {
@@ -23,7 +23,7 @@ const commentSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // Automatically adds createdAt and updatedAt
+    timestamps: true, 
   }
 );
 

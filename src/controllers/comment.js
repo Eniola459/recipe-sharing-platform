@@ -5,7 +5,7 @@ exports.commentRecipe = async (req, res) => {
 
     const newComment = new Comment({
       recipe: req.params.recipeId,
-      user: req.user.id, // Assuming the user is authenticated and their ID is in req.user
+      user: req.user.id, 
       comment,
     });
 

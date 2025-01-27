@@ -1,5 +1,5 @@
-const Recipe = require("../models/recipeModel"); // Assuming you have a Recipe model
-const Comment = require("../models/comment"); // Assuming you have a Comment model
+const Recipe = require("../models/recipeModel"); 
+const Comment = require("../models/comment"); 
 
 // Create a new recipe
 exports.createRecipe = async (req, res) => {
@@ -13,7 +13,7 @@ exports.createRecipe = async (req, res) => {
       instructions,
       description,
       media,
-      user: req.user.id, // Assuming the user is authenticated
+      user: req.user.id, 
     });
 
     await newRecipe.save();
